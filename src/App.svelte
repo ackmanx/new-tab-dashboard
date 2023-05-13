@@ -1,10 +1,36 @@
 <script lang="ts">
-  import Counter from './lib/Counter.svelte'
 </script>
 
 <main>
-  <Counter />
+  <section>
+    <h2>Pull Requests</h2>
+    <ul>
+      <li><a href="">All of Mine</a></li>
+      <li><a href="">Frontend (UI, Prefix, ABP)</a></li>
+      <li><a href="">Slingshot UI</a></li>
+    </ul>
+  </section>
 </main>
 
 <style>
+  section {
+    width: 350px;
+    background-color: rgba(255, 255, 255, 0.09);
+    padding: 16px;
+    border-radius: 10px;
+  }
+
+  a {
+    width: 100%;
+    padding: 8px;
+    display: inline-block;
+  }
+
+  a:hover {
+    background-color: #242424;
+  }
+
+  li {
+    font-size: 16px;
+  }
 </style>

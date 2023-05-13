@@ -7,6 +7,14 @@
   background-color: #242424;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+body {
+  margin: 16px;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -36,6 +44,11 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
 }
 
 /* Light mode overrides */
