@@ -7,13 +7,14 @@
     "dev": "vite --port 3000",
     "build": "vite build",
     "preview": "vite preview",
-    "prettier": "prettier --config ./prettier.config.js --write './**/*.{js,json,ts,tsx}'",
+    "prettier": "prettier --config prettier.config.cjs --write './**/*.{js,json,ts,tsx,svelte}'",
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^2.0.3",
     "@tsconfig/svelte": "^4.0.1",
     "prettier": "^2.8.8",
+    "prettier-plugin-svelte": "^2.10.0",
     "svelte": "^3.57.0",
     "svelte-check": "^2.10.3",
     "tslib": "^2.5.0",

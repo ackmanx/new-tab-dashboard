@@ -3,7 +3,7 @@
 </script>
 
 <main>
-    <Counter />
+  <Counter />
 </main>
 
 <style>
