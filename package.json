@@ -4,10 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --port 3000",
     "build": "vite build",
     "build:watch": "vite build --watch",
-    "preview": "vite preview",
     "prettier": "prettier --config prettier.config.cjs --write './**/*.{js,json,ts,tsx,svelte}'",
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
