@@ -14,7 +14,6 @@
 
 <style>
   section {
-    width: 350px;
     background-color: rgba(255, 255, 255, 0.09);
     padding: 16px;
     border-radius: 10px;
@@ -28,6 +27,8 @@
 
   a:hover {
     background-color: #242424;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
   }
 
   li {
