@@ -1,13 +1,13 @@
 import { style } from '@vanilla-extract/css'
 
-export const section = style({
+const section = style({
   backgroundColor: 'rgba(255, 255, 255, 0.09)',
   padding: '16px',
   borderRadius: '10px',
   marginBottom: '16px',
 })
 
-export const link = style({
+const link = style({
   width: '100%',
   padding: '8px',
   display: 'inline-block',
@@ -19,3 +19,8 @@ export const link = style({
     borderBottomLeftRadius: '5px',
   },
 })
+
+export default {
+  section,
+  link,
+}
