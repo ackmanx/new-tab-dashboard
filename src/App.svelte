@@ -1,4 +1,5 @@
 <script lang="ts">
+  import AddNewPlaceholder from './lib/AddNewPlaceholder.svelte'
 </script>
 
 <main>
@@ -10,6 +11,7 @@
       <li><a href="">Slingshot UI</a></li>
     </ul>
   </section>
+  <AddNewPlaceholder />
 </main>
 
 <style>
@@ -17,6 +19,7 @@
     background-color: rgba(255, 255, 255, 0.09);
     padding: 16px;
     border-radius: 10px;
+    margin-bottom: 16px;
   }
 
   a {
