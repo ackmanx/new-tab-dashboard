@@ -10,6 +10,7 @@
     "prettier": "prettier --config prettier.config.cjs --write './**/*.{js,json,ts,tsx}'"
   },
   "dependencies": {
+    "@vanilla-extract/css": "^1.11.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -18,6 +19,7 @@
     "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.57.1",
     "@typescript-eslint/parser": "^5.57.1",
+    "@vanilla-extract/vite-plugin": "^3.8.0",
     "@vitejs/plugin-react": "^4.0.0",
     "eslint": "^8.38.0",
     "eslint-plugin-react-hooks": "^4.6.0",

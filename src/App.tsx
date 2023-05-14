@@ -1,20 +1,26 @@
-import './App.css'
 import { AddNewPlaceholder } from './components/AddNewPlaceholder'
+import { section, link } from './App.css.ts'
 
 function App() {
   return (
     <main>
-      <section>
+      <section className={section}>
         <h2>Pull Requests</h2>
         <ul>
           <li>
-            <a href=''>All of Mine</a>
+            <a className={link} href=''>
+              All of Mine
+            </a>
           </li>
           <li>
-            <a href=''>Frontend (UI, Prefix, ABP)</a>
+            <a className={link} href=''>
+              Frontend (UI, Prefix, ABP)
+            </a>
           </li>
           <li>
-            <a href=''>Slingshot UI</a>
+            <a className={link} href=''>
+              Slingshot UI
+            </a>
           </li>
         </ul>
       </section>
