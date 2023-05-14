@@ -4,19 +4,25 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "build": "vite build",
+    "build": "tsc && vite build",
     "build:watch": "vite build --watch",
-    "prettier": "prettier --config prettier.config.cjs --write './**/*.{js,json,ts,tsx,svelte}'",
-    "check": "svelte-check --tsconfig ./tsconfig.json"
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "prettier": "prettier --config prettier.config.cjs --write './**/*.{js,json,ts,tsx}'"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@sveltejs/vite-plugin-svelte": "^2.0.3",
-    "@tsconfig/svelte": "^4.0.1",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.57.1",
+    "@typescript-eslint/parser": "^5.57.1",
+    "@vitejs/plugin-react": "^4.0.0",
+    "eslint": "^8.38.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.3.4",
     "prettier": "^2.8.8",
-    "prettier-plugin-svelte": "^2.10.0",
-    "svelte": "^3.57.0",
-    "svelte-check": "^2.10.3",
-    "tslib": "^2.5.0",
     "typescript": "^5.0.2",
     "vite": "^4.3.2"
   }
