@@ -1,29 +1,29 @@
 import { AddNewPlaceholder } from './components/AddNewPlaceholder/AddNewPlaceholder'
 import styles from './App.css.ts'
+import useLocalStorage from 'use-local-storage'
+import { CardData } from './types'
 
 function App() {
+  const [cardData] = useLocalStorage<CardData>('cardData', { cards: [] })
+
   return (
     <main>
-      <section className={styles.section}>
-        <h2>Pull Requests</h2>
-        <ul>
-          <li>
-            <a className={styles.link} href=''>
-              All of Mine
-            </a>
-          </li>
-          <li>
-            <a className={styles.link} href=''>
-              Frontend (UI, Prefix, ABP)
-            </a>
-          </li>
-          <li>
-            <a className={styles.link} href=''>
-              Slingshot UI
-            </a>
-          </li>
-        </ul>
-      </section>
+      {cardData.cards.map((card) => (
+        <section className={styles.section}>
+          <article key={card.title}>
+            <h2>{card.title}</h2>
+            <ul>
+              {card.links.map((link) => (
+                <li key={link.text}>
+                  <a className={styles.link} href={link.url}>
+                    {link.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </article>
+        </section>
+      ))}
 
       <AddNewPlaceholder />
     </main>
