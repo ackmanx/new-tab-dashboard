@@ -1,10 +1,18 @@
 /* Dark mode is default. Light mode overrides are after dark mode defaults */
 :root {
+  --dark__main-bg: #242424;
+  --dark__text: rgba(255, 255, 255, 0.87);
+  --dark__button-bg: #1a1a1a;
+
+  --light__main-bg: #fcfcfc;
+  --light__text: #213547;
+  --light__button-bg: #e4e4e4;
+
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: var(--dark__text);
+  background-color: var(--dark__main-bg);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -17,7 +25,7 @@ body {
 
 a {
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.87);
+  color: var(--dark__text);
   text-decoration: inherit;
 }
 
@@ -28,7 +36,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--dark__button-bg);
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -50,8 +58,14 @@ ul {
 /* Light mode overrides */
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: var(--light__text);
+    background-color: var(--light__main-bg);
+  }
+
+  a {
+    font-weight: 500;
+    color: var(--light__text);
+    text-decoration: inherit;
   }
 
   a:hover {
@@ -59,6 +73,6 @@ ul {
   }
 
   button {
-    background-color: #f9f9f9;
+    background-color: var(--light__button-bg);
   }
 }
