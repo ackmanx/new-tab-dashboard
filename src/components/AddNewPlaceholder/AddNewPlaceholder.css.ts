@@ -9,6 +9,12 @@ const section = style({
   cursor: 'pointer',
 
   ':hover': { outline: '1px solid var(--dark__text)', boxSizing: 'border-box' },
+
+  '@media': {
+    '(prefers-color-scheme: light)': {
+      backgroundColor: 'var(--light__card-bg)',
+    },
+  },
 })
 
 const icon = style({ width: '50px' })
