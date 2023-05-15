@@ -1,6 +1,4 @@
-export interface CardData {
-  cards: Card[]
-}
+export type CardData = Card[]
 
 export interface Card {
   title?: string

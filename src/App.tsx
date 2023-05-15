@@ -4,20 +4,24 @@ import { CardData } from './types'
 import { Card } from './components/Card'
 
 function App() {
-  const [cardData, saveCardData] = useLocalStorage<CardData>('cardData', { cards: [] })
+  const [cardData, saveCardData] = useLocalStorage<CardData>('cardData', [])
 
   function handleAddNewCard() {
-    saveCardData({ cards: [...cardData.cards, {}] })
+    saveCardData([...cardData, {}])
   }
 
   function handleDeleteCard(cardIndex: number) {
     // @ts-expect-error toSpliced is available on Chromium browsers, which is fine being this is an extension for them
-    saveCardData({ cards: cardData.cards.toSpliced(cardIndex, 1) })
+    saveCardData(cardData.toSpliced(cardIndex, 1))
   }
+
+  // function handleUpdateCard(cardIndex: number, card: CardType) {
+  //
+  // }
 
   return (
     <main>
-      {cardData.cards.map((card, index) => (
+      {cardData.map((card, index) => (
         <Card key={card.title} card={card} cardIndex={index} onDeleteCard={handleDeleteCard} />
       ))}
 
