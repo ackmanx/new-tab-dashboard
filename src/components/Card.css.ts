@@ -1,10 +1,16 @@
 import { style } from '@vanilla-extract/css'
 
 const section = style({
-  backgroundColor: 'rgba(255, 255, 255, 0.09)',
+  backgroundColor: 'var(--dark__card-bg)',
   padding: '16px',
   borderRadius: '10px',
   marginBottom: '16px',
+
+  '@media': {
+    '(prefers-color-scheme: light)': {
+      backgroundColor: 'var(--light__card-bg)',
+    },
+  },
 })
 
 const link = style({
@@ -14,9 +20,17 @@ const link = style({
   fontSize: '16px',
 
   ':hover': {
-    backgroundColor: '#242424',
+    backgroundColor: 'var(--dark__main-bg)',
     borderTopLeftRadius: '5px',
     borderBottomLeftRadius: '5px',
+  },
+
+  '@media': {
+    '(prefers-color-scheme: light)': {
+      ':hover': {
+        backgroundColor: 'var(--light__main-bg)',
+      },
+    },
   },
 })
 
