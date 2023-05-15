@@ -2,10 +2,12 @@
 :root {
   --dark__main-bg: #242424;
   --dark__text: rgba(255, 255, 255, 0.87);
+  --dark__card-bg: rgba(255, 255, 255, 0.09);
   --dark__button-bg: #1a1a1a;
 
   --light__main-bg: #fcfcfc;
   --light__text: #213547;
+  --light__card-bg: rgba(255, 255, 255, 0.09);
   --light__button-bg: #e4e4e4;
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
