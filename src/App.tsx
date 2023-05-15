@@ -10,10 +10,15 @@ function App() {
     saveCardData({ cards: [...cardData.cards, {}] })
   }
 
+  function handleDeleteCard(cardIndex: number) {
+    // @ts-expect-error toSpliced is available on Chromium browsers, which is fine being this is an extension for them
+    saveCardData({ cards: cardData.cards.toSpliced(cardIndex, 1) })
+  }
+
   return (
     <main>
-      {cardData.cards.map((card) => (
-        <Card key={card.title} card={card} />
+      {cardData.cards.map((card, index) => (
+        <Card key={card.title} card={card} cardIndex={index} onDeleteCard={handleDeleteCard} />
       ))}
 
       <AddNewPlaceholder onClickNewPlaceholder={handleAddNewCard} />
