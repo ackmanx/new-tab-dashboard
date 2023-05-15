@@ -13,6 +13,8 @@ const section = style({
   '@media': {
     '(prefers-color-scheme: light)': {
       backgroundColor: 'var(--light__card-bg)',
+
+      ':hover': { outline: '1px solid var(--light__text)', boxSizing: 'border-box' },
     },
   },
 })
