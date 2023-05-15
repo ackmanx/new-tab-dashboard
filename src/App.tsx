@@ -1,7 +1,7 @@
 import { AddNewPlaceholder } from './components/AddNewPlaceholder/AddNewPlaceholder'
-import styles from './App.css.ts'
 import useLocalStorage from 'use-local-storage'
 import { CardData } from './types'
+import { Card } from './components/Card'
 
 function App() {
   const [cardData, saveCardData] = useLocalStorage<CardData>('cardData', { cards: [] })
@@ -13,20 +13,7 @@ function App() {
   return (
     <main>
       {cardData.cards.map((card) => (
-        <section className={styles.section}>
-          <article key={card.title}>
-            <h2>{card.title}</h2>
-            <ul>
-              {card.links?.map((link) => (
-                <li key={link.text}>
-                  <a className={styles.link} href={link.url}>
-                    {link.text}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </article>
-        </section>
+        <Card key={card.title} card={card} />
       ))}
 
       <AddNewPlaceholder onClickNewPlaceholder={handleAddNewCard} />

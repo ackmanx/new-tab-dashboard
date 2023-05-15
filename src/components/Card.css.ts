@@ -20,7 +20,13 @@ const link = style({
   },
 })
 
+const header = style({
+  display: 'flex',
+  justifyContent: 'space-between',
+})
+
 export default {
   section,
   link,
+  header,
 }
