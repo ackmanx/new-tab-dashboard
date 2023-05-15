@@ -20,7 +20,7 @@ export const Card = ({ card, cardIndex, onDeleteCard }: Props) => {
       {isEditView ? (
         <>
           <div className={styles.header}>
-            <h2>{card.title}</h2>
+            <input placeholder='title' value={card.title} />
             <div>
               <button onClick={() => onDeleteCard(cardIndex)}>Delete</button>
               <button style={{ marginLeft: '8px' }} onClick={handleEditViewToggle}>
@@ -31,9 +31,8 @@ export const Card = ({ card, cardIndex, onDeleteCard }: Props) => {
           <ul>
             {card.links?.map((link) => (
               <li key={link.text}>
-                <a className={styles.link} href={link.url}>
-                  {link.text}
-                </a>
+                <input placeholder='text' value={link.text} />
+                <input placeholder='url' value={link.url} />
               </li>
             ))}
           </ul>
