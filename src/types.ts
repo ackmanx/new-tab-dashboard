@@ -3,13 +3,14 @@ export interface CardData {
 }
 
 export interface Card {
-  title: string
-  links: {
-    text: string
-    url: string
+  title?: string
+  links?: {
+    text?: string
+    url?: string
   }[]
 }
 
+// @ts-ignore
 const data: CardData = {
   cards: [
     {

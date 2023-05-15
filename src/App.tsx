@@ -4,7 +4,11 @@ import useLocalStorage from 'use-local-storage'
 import { CardData } from './types'
 
 function App() {
-  const [cardData] = useLocalStorage<CardData>('cardData', { cards: [] })
+  const [cardData, saveCardData] = useLocalStorage<CardData>('cardData', { cards: [] })
+
+  function handleAddNewCard() {
+    saveCardData({ cards: [...cardData.cards, {}] })
+  }
 
   return (
     <main>
@@ -13,7 +17,7 @@ function App() {
           <article key={card.title}>
             <h2>{card.title}</h2>
             <ul>
-              {card.links.map((link) => (
+              {card.links?.map((link) => (
                 <li key={link.text}>
                   <a className={styles.link} href={link.url}>
                     {link.text}
@@ -25,7 +29,7 @@ function App() {
         </section>
       ))}
 
-      <AddNewPlaceholder />
+      <AddNewPlaceholder onClickNewPlaceholder={handleAddNewCard} />
     </main>
   )
 }
