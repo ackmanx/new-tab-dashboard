@@ -13,6 +13,27 @@ const section = style({
   },
 })
 
+const editTitle = style({
+  fontSize: '1.5em',
+  padding: '8px',
+  border: 'none',
+  borderRadius: '5px',
+})
+
+const editItemRow = style({
+  display: 'flex',
+  gap: '8px',
+  padding: '8px',
+})
+
+const editItem = style({
+  flexGrow: 1,
+  padding: '8px',
+  border: 'none',
+  borderRadius: '5px',
+  fontSize: '16px',
+})
+
 const link = style({
   width: '100%',
   padding: '8px',
@@ -41,6 +62,9 @@ const header = style({
 
 export default {
   section,
+  editTitle,
   link,
+  editItemRow,
+  editItem,
   header,
 }
