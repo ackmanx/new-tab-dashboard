@@ -1,4 +1,4 @@
-import { AddNewPlaceholder } from './components/AddNewPlaceholder'
+import { AddNewPlaceholder } from './components/AddNewPlaceholder/AddNewPlaceholder'
 import styles from './App.css.ts'
 
 function App() {
