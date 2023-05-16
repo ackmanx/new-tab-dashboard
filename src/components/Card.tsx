@@ -1,6 +1,7 @@
 import styles from './Card.css'
 import { Card as CardType } from '../types'
 import { ChangeEvent, useState } from 'react'
+import AddIcon from './AddNewPlaceholder/add-icon.png'
 
 interface Props {
   card: CardType
@@ -85,6 +86,9 @@ export const Card = ({ card, cardIndex, onDeleteCard, onUpdateCard }: Props) => 
                 />
               </li>
             ))}
+            <li className={styles.addNewLinkRow}>
+              <img className={styles.addNewLinkIcon} src={AddIcon} alt='add card icon' />
+            </li>
           </ul>
         </>
       ) : (

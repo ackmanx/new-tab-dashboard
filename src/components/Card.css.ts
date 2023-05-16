@@ -60,6 +60,28 @@ const header = style({
   justifyContent: 'space-between',
 })
 
+const addNewLinkRow = style({
+  padding: '8px',
+  margin: '8px',
+  textAlign: 'center',
+  borderRadius: '5px',
+  cursor: 'pointer',
+
+  ':hover': { outline: '1px solid var(--dark__text)', boxSizing: 'border-box' },
+
+  '@media': {
+    '(prefers-color-scheme: light)': {
+      backgroundColor: 'var(--light__card-bg)',
+
+      ':hover': { outline: '1px solid var(--light__text)', boxSizing: 'border-box' },
+    },
+  },
+})
+
+const addNewLinkIcon = style({
+  width: '25px',
+})
+
 export default {
   section,
   editTitle,
@@ -67,4 +89,6 @@ export default {
   editItemRow,
   editItem,
   header,
+  addNewLinkRow,
+  addNewLinkIcon,
 }
