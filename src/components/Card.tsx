@@ -51,6 +51,13 @@ export const Card = ({ card, cardIndex, onDeleteCard, onUpdateCard }: Props) => 
     })
   }
 
+  function handleAddNewLink() {
+    setCurrentCard((prevState) => ({
+      ...prevState,
+      links: [...prevState.links, {}],
+    }))
+  }
+
   return (
     <section key={currentCard.title} className={styles.section}>
       {isEditView ? (
@@ -86,7 +93,7 @@ export const Card = ({ card, cardIndex, onDeleteCard, onUpdateCard }: Props) => 
                 />
               </li>
             ))}
-            <li className={styles.addNewLinkRow}>
+            <li className={styles.addNewLinkRow} onClick={handleAddNewLink}>
               <img className={styles.addNewLinkIcon} src={AddIcon} alt='add card icon' />
             </li>
           </ul>
