@@ -59,7 +59,7 @@ export const Card = ({ card, cardIndex, onDeleteCard, onUpdateCard }: Props) => 
   }
 
   return (
-    <section key={currentCard.title} className={styles.section}>
+    <section className={styles.section}>
       {isEditView ? (
         <>
           <div className={styles.header}>
@@ -78,7 +78,7 @@ export const Card = ({ card, cardIndex, onDeleteCard, onUpdateCard }: Props) => 
           </div>
           <ul>
             {currentCard.links?.map((link, index) => (
-              <li key={link.text} className={styles.editItemRow}>
+              <li key={index} className={styles.editItemRow}>
                 <input
                   className={styles.editItem}
                   placeholder='text'
