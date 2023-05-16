@@ -1,13 +1,13 @@
 import { AddNewPlaceholder } from './components/AddNewPlaceholder/AddNewPlaceholder'
 import useLocalStorage from 'use-local-storage'
-import { CardData } from './types'
+import { CardData, Card as CardType } from './types'
 import { Card } from './components/Card'
 
 function App() {
   const [cardData, saveCardData] = useLocalStorage<CardData>('cardData', [])
 
   function handleAddNewCard() {
-    saveCardData([...cardData, {}])
+    saveCardData([...cardData, { links: [] }])
   }
 
   function handleDeleteCard(cardIndex: number) {
@@ -15,14 +15,24 @@ function App() {
     saveCardData(cardData.toSpliced(cardIndex, 1))
   }
 
-  // function handleUpdateCard(cardIndex: number, card: CardType) {
-  //
-  // }
+  function handleUpdateCard(cardIndex: number, card: CardType) {
+    const newCardData = [...cardData]
+
+    newCardData[cardIndex] = card
+
+    saveCardData(newCardData)
+  }
 
   return (
     <main>
       {cardData.map((card, index) => (
-        <Card key={card.title} card={card} cardIndex={index} onDeleteCard={handleDeleteCard} />
+        <Card
+          key={card.title}
+          card={card}
+          cardIndex={index}
+          onUpdateCard={handleUpdateCard}
+          onDeleteCard={handleDeleteCard}
+        />
       ))}
 
       <AddNewPlaceholder onClickNewPlaceholder={handleAddNewCard} />

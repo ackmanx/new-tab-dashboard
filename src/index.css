@@ -9,6 +9,7 @@
   --light__text: #213547;
   --light__card-bg: #f1f1f1;
   --light__button-bg: #e4e4e4;
+  --light__accent: #373eb1;
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 
@@ -43,8 +44,12 @@ button {
   transition: border-color 0.25s;
 }
 
+button.primary {
+  background-color: var(--light__accent);
+}
+
 button:hover {
-  border-color: #646cff;
+  border-color: var(--light__accent);
 }
 
 button:focus,
@@ -71,10 +76,15 @@ ul {
   }
 
   a:hover {
-    color: #747bff;
+    color: var(--light__accent);
   }
 
   button {
     background-color: var(--light__button-bg);
+  }
+
+  button.primary {
+    background-color: var(--light__accent);
+    color: var(--dark__text)
   }
 }
