@@ -19,7 +19,7 @@ const section = style({
   },
 })
 
-const icon = style({ width: '50px' })
+const icon = style({ width: '50px', filter: 'contrast(0)' })
 
 export default {
   section,

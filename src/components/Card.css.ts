@@ -80,6 +80,7 @@ const addNewLinkRow = style({
 
 const addNewLinkIcon = style({
   width: '25px',
+  filter: 'contrast(0)',
 })
 
 export default {
