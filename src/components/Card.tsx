@@ -21,6 +21,12 @@ export const Card = ({ card, cardIndex, onDeleteCard, onUpdateCard }: Props) => 
     setIsEditView(!isEditView)
   }
 
+  function handleDeleteCard() {
+    if (window.confirm('Are you sure you want to delete this card?')) {
+      onDeleteCard(cardIndex)
+    }
+  }
+
   function handleUpdateTitle(event: ChangeEvent<HTMLInputElement>) {
     setCurrentCard((prevState) => ({
       ...prevState,
@@ -56,7 +62,7 @@ export const Card = ({ card, cardIndex, onDeleteCard, onUpdateCard }: Props) => 
               onChange={handleUpdateTitle}
             />
             <div>
-              <button onClick={() => onDeleteCard(cardIndex)}>Delete</button>
+              <button onClick={handleDeleteCard}>Delete</button>
               <button className='primary' style={{ marginLeft: '8px' }} onClick={handleEditViewToggle}>
                 Save
               </button>
