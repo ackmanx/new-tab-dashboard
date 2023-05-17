@@ -6,6 +6,7 @@
   "scripts": {
     "build": "tsc && vite build",
     "build:watch": "vite build --watch",
+    "prep": "bash chrome-store/prep-for-chrome-store.sh",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "prettier": "prettier --config prettier.config.cjs --write './**/*.{js,json,ts,tsx}'"
   },
