@@ -5,7 +5,7 @@
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
-  "permissions": ["favicon"],
+  "permissions": ["favicon", "bookmarks"],
   "web_accessible_resources": [
     {
       "resources": ["_favicon/*"],
