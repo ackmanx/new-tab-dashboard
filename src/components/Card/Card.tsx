@@ -1,7 +1,8 @@
-import styles from './Card.css'
-import { Card as CardType } from '../types'
+import styles from './Card.css.ts'
+import { Card as CardType } from '../../types.ts'
 import { ChangeEvent, useState } from 'react'
-import AddIcon from './AddNewPlaceholder/add-icon.png'
+import AddIcon from '../AddNewPlaceholder/add-icon.png'
+import { Button } from "../Button/Button.tsx";
 
 interface Props {
   card: CardType
@@ -69,11 +70,11 @@ export const Card = ({ card, cardIndex, onDeleteCard, onUpdateCard }: Props) => 
               value={currentCard.title}
               onChange={handleUpdateTitle}
             />
-            <div>
-              <button onClick={handleDeleteCard}>Delete</button>
-              <button className='primary' style={{ marginLeft: '8px' }} onClick={handleEditViewToggle}>
+            <div className={styles.buttonContainer}>
+              <Button handleClick={handleDeleteCard}>Delete</Button>
+              <Button variant='primary' handleClick={handleEditViewToggle}>
                 Save
-              </button>
+              </Button>
             </div>
           </div>
           <ul>
@@ -102,7 +103,7 @@ export const Card = ({ card, cardIndex, onDeleteCard, onUpdateCard }: Props) => 
         <>
           <div className={styles.header}>
             <h2>{currentCard.title}</h2>
-            <button onClick={handleEditViewToggle}>Edit</button>
+            <Button handleClick={handleEditViewToggle}>Edit</Button>
           </div>
           <ul>
             {currentCard.links?.map((link) => (

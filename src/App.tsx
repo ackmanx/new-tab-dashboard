@@ -1,7 +1,8 @@
 import { AddNewPlaceholder } from './components/AddNewPlaceholder/AddNewPlaceholder'
 import useLocalStorage from 'use-local-storage'
 import { CardData, Card as CardType } from './types'
-import { Card } from './components/Card'
+import { Card } from './components/Card/Card.tsx'
+import { darkTheme, lightTheme } from "../styles/themes.css.ts";
 
 function App() {
   const [cardData, saveCardData] = useLocalStorage<CardData>('cardData', [])
@@ -24,7 +25,7 @@ function App() {
   }
 
   return (
-    <main>
+    <main className={window.matchMedia('(prefers-color-scheme: dark)').matches ? darkTheme : lightTheme}>
       {cardData.map((card, index) => (
         <Card
           key={card.title}

@@ -1,16 +1,11 @@
 import { style } from '@vanilla-extract/css'
+import { vars } from "../../../styles/themes.css.ts";
 
 const section = style({
-  backgroundColor: 'var(--dark__card-bg)',
+  backgroundColor: vars.colors.cardBg,
   padding: '16px',
   borderRadius: '10px',
   marginBottom: '16px',
-
-  '@media': {
-    '(prefers-color-scheme: light)': {
-      backgroundColor: 'var(--light__card-bg)',
-    },
-  },
 })
 
 const editTitle = style({
@@ -41,7 +36,7 @@ const link = style({
   fontSize: '16px',
 
   ':hover': {
-    backgroundColor: 'var(--dark__main-bg)',
+    backgroundColor: vars.colors.mainBg,
     borderTopLeftRadius: '5px',
     borderBottomLeftRadius: '5px',
   },
@@ -49,7 +44,7 @@ const link = style({
   '@media': {
     '(prefers-color-scheme: light)': {
       ':hover': {
-        backgroundColor: 'var(--light__main-bg)',
+        backgroundColor: vars.colors.mainBg,
       },
     },
   },
@@ -66,21 +61,19 @@ const addNewLinkRow = style({
   textAlign: 'center',
   borderRadius: '5px',
   cursor: 'pointer',
+  backgroundColor: vars.colors.cardBg,
 
-  ':hover': { outline: '1px solid var(--dark__text)', boxSizing: 'border-box' },
-
-  '@media': {
-    '(prefers-color-scheme: light)': {
-      backgroundColor: 'var(--light__card-bg)',
-
-      ':hover': { outline: '1px solid var(--light__text)', boxSizing: 'border-box' },
-    },
-  },
+  ':hover': { outline: `1px solid ${vars.colors.text}`, boxSizing: 'border-box' },
 })
 
 const addNewLinkIcon = style({
   width: '25px',
   filter: 'contrast(0)',
+})
+
+const buttonContainer = style({
+  display: "flex",
+  gap: 8
 })
 
 export default {
@@ -92,4 +85,5 @@ export default {
   header,
   addNewLinkRow,
   addNewLinkIcon,
+  buttonContainer
 }
