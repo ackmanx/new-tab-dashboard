@@ -7,18 +7,33 @@ import { useEffect } from "react";
 
 function App() {
   const [cardData, saveCardData] = useLocalStorage<CardData>('cardData', [])
-  useEffect(() => {
-    if(window.matchMedia('(prefers-color-scheme: dark)').matches){
-      document.body.classList.add(darkTheme)
-    } else {
-      document.body.classList.add(lightTheme)
-    }
-    return () => {
-      if(window.matchMedia('(prefers-color-scheme: dark)').matches){
-        document.body.classList.remove(darkTheme)
-      } else {
-        document.body.classList.remove(lightTheme)
+
+  function changeThemeLogic(isDarkTheme: boolean) {
+    const bodyClassList = document.body.classList
+    if(isDarkTheme){
+      bodyClassList.add(darkTheme)
+      if(bodyClassList.contains(lightTheme)){
+        bodyClassList.remove(lightTheme)
       }
+    } else {
+      bodyClassList.add(lightTheme)
+      if(bodyClassList.contains(darkTheme)){
+        bodyClassList.remove(darkTheme)
+      }
+    }
+  }
+
+  useEffect(() => {
+    function changeTheme(e: MediaQueryListEvent) {
+      changeThemeLogic(e.matches)
+    }
+
+    const mql = window.matchMedia('(prefers-color-scheme: dark)')
+    mql.addEventListener('change', changeTheme)
+    changeThemeLogic(mql.matches)
+
+    return () => {
+      mql.removeEventListener('change', changeTheme)
     }
   }, [])
 
