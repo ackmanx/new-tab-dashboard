@@ -2,6 +2,7 @@ import { style, styleVariants } from "@vanilla-extract/css";
 import { vars } from "../../../styles/themes.css.ts";
 
 const buttonBase = style({
+  color: vars.colors.text,
   borderRadius: 8,
   border: '1px solid transparent',
   padding: '0.6em 1.2em',
@@ -20,11 +21,13 @@ export const button = styleVariants(
   (primaryColor) => [buttonBase,
     {
       backgroundColor: primaryColor,
-      '& :hover': {
-        borderColor: primaryColor
-      },
-      '& :focus, &: focus-visible': {
-        outline: '4px auto -webkit-focus-ring-color'
+      selectors: {
+        '&:hover': {
+          borderColor: primaryColor
+        },
+        '&:focus, &:focus-visible': {
+          outline: '4px auto -webkit-focus-ring-color'
+        }
       }
 }]
 )

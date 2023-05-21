@@ -3,9 +3,24 @@ import useLocalStorage from 'use-local-storage'
 import { CardData, Card as CardType } from './types'
 import { Card } from './components/Card/Card.tsx'
 import { darkTheme, lightTheme } from "../styles/themes.css.ts";
+import { useEffect } from "react";
 
 function App() {
   const [cardData, saveCardData] = useLocalStorage<CardData>('cardData', [])
+  useEffect(() => {
+    if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+      document.body.classList.add(darkTheme)
+    } else {
+      document.body.classList.add(lightTheme)
+    }
+    return () => {
+      if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+        document.body.classList.remove(darkTheme)
+      } else {
+        document.body.classList.remove(lightTheme)
+      }
+    }
+  }, [])
 
   function handleAddNewCard() {
     saveCardData([...cardData, { links: [] }])
@@ -25,7 +40,7 @@ function App() {
   }
 
   return (
-    <main className={window.matchMedia('(prefers-color-scheme: dark)').matches ? darkTheme : lightTheme}>
+    <main>
       {cardData.map((card, index) => (
         <Card
           key={card.title}

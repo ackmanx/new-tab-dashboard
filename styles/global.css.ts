@@ -2,7 +2,9 @@ import { globalStyle } from "@vanilla-extract/css";
 import { vars } from "./themes.css";
 
 globalStyle('body', {
-  margin: 16
+  margin: 16,
+  backgroundColor: vars.colors.mainBg,
+  color: vars.colors.text
 })
 
 globalStyle('h1, h2, h3, h4, h5, h6', {
