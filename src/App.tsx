@@ -2,22 +2,25 @@ import { AddNewPlaceholder } from './components/AddNewPlaceholder/AddNewPlacehol
 import useLocalStorage from 'use-local-storage'
 import { CardData, Card as CardType } from './types'
 import { Card } from './components/Card/Card.tsx'
-import { darkTheme, lightTheme } from "../styles/themes.css.ts";
-import { useEffect } from "react";
+import { darkTheme, lightTheme } from '../styles/themes.css.ts'
+import { useEffect } from 'react'
 
 function App() {
   const [cardData, saveCardData] = useLocalStorage<CardData>('cardData', [])
 
   function changeThemeLogic(isDarkTheme: boolean) {
     const bodyClassList = document.body.classList
-    if(isDarkTheme){
+
+    if (isDarkTheme) {
       bodyClassList.add(darkTheme)
-      if(bodyClassList.contains(lightTheme)){
+
+      if (bodyClassList.contains(lightTheme)) {
         bodyClassList.remove(lightTheme)
       }
     } else {
       bodyClassList.add(lightTheme)
-      if(bodyClassList.contains(darkTheme)){
+
+      if (bodyClassList.contains(darkTheme)) {
         bodyClassList.remove(darkTheme)
       }
     }

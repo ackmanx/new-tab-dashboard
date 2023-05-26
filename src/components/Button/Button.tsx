@@ -1,10 +1,15 @@
-import { ReactNode } from "react";
-import { button } from "./Button.css.ts";
+import { ReactNode } from 'react'
+import { button } from './Button.css.ts'
 interface Props {
-  children: ReactNode,
+  children: ReactNode
   variant?: 'primary' | 'default'
   handleClick: () => void
 }
-export const Button = ({children, variant = 'default', handleClick}: Props) => {
-  return <button className={button[variant]} onClick={handleClick}>{children}</button>
+
+export const Button = ({ children, variant = 'default', handleClick }: Props) => {
+  return (
+    <button className={button[variant]} onClick={handleClick}>
+      {children}
+    </button>
+  )
 }
