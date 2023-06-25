@@ -1,14 +1,15 @@
-import { ReactNode } from 'react'
+import { MouseEvent, ReactNode } from "react";
 import { button } from './Button.css.ts'
 interface Props {
   children: ReactNode
+  className?: string
   variant?: 'primary' | 'default'
-  handleClick: () => void
+  handleClick: (event: MouseEvent<HTMLButtonElement>) => void
 }
 
-export const Button = ({ children, variant = 'default', handleClick }: Props) => {
+export const Button = ({ children, className, variant = 'default', handleClick }: Props) => {
   return (
-    <button className={button[variant]} onClick={handleClick}>
+    <button className={`${button[variant]} ${className}`} onClick={handleClick}>
       {children}
     </button>
   )

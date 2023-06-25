@@ -5,7 +5,6 @@ const section = style({
   backgroundColor: vars.colors.cardBg,
   padding: '16px',
   borderRadius: '10px',
-  marginBottom: '16px',
 })
 
 const editTitle = style({

@@ -1,5 +1,5 @@
-import { style, styleVariants } from "@vanilla-extract/css";
-import { vars } from "../../../styles/themes.css.ts";
+import { style, styleVariants } from '@vanilla-extract/css'
+import { vars } from '../../../styles/themes.css.ts'
 
 const buttonBase = style({
   color: vars.colors.text,
@@ -10,24 +10,27 @@ const buttonBase = style({
   fontWeight: 500,
   fontFamily: 'inherit',
   cursor: 'pointer',
-  transition: 'border-color 0.25s'
+  transition: 'border-color 0.25s',
 })
 
 export const button = styleVariants(
-{
-  primary: vars.colors.accent,
-  default: vars.colors.buttonBg
-},
-  (primaryColor) => [buttonBase,
+  {
+    primary: vars.colors.accent,
+    default: vars.colors.buttonBg,
+  },
+  (primaryColor) => [
+    buttonBase,
     {
       backgroundColor: primaryColor,
+      color: vars.colors.mainBg,
       selectors: {
         '&:hover': {
-          borderColor: primaryColor
+          borderColor: primaryColor,
         },
         '&:focus, &:focus-visible': {
-          outline: '4px auto -webkit-focus-ring-color'
-        }
-      }
-}]
+          outline: '4px auto -webkit-focus-ring-color',
+        },
+      },
+    },
+  ]
 )

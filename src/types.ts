@@ -3,7 +3,7 @@ export type CardData = Card[]
 export interface Card {
   title?: string
   links: {
-    text?: string
+    label?: string
     url?: string
   }[]
 }

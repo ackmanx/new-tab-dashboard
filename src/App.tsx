@@ -3,10 +3,17 @@ import useLocalStorage from 'use-local-storage'
 import { CardData, Card as CardType } from './types'
 import { Card } from './components/Card/Card.tsx'
 import { darkTheme, lightTheme } from '../styles/themes.css.ts'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import { mainContainer } from './App.css.ts'
+import { Drawer } from './components/Drawer/Drawer.tsx'
+import { ChangeCardContentsDrawer } from './components/ChangeCardContentsDrawer/ChangeCardContentsDrawer.tsx'
 
 function App() {
   const [cardData, saveCardData] = useLocalStorage<CardData>('cardData', [])
+  const [cards, setCards] = useState<CardData>(cardData)
+  const [selectedCard, setSelectedCard] = useState(-1)
+  // beginning stages of separating drawer state from selectedCard
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
   function changeThemeLogic(isDarkTheme: boolean) {
     const bodyClassList = document.body.classList
@@ -41,32 +48,36 @@ function App() {
   }, [])
 
   function handleAddNewCard() {
+    setCards([...cardData, { links: [] }])
     saveCardData([...cardData, { links: [] }])
   }
 
-  function handleDeleteCard(cardIndex: number) {
-    // @ts-expect-error toSpliced is available on Chromium browsers, which is fine being this is an extension for them
-    saveCardData(cardData.toSpliced(cardIndex, 1))
+  function handleSelectCard(cardIndex: number) {
+    setSelectedCard(cardIndex)
+    setIsDrawerOpen(cardIndex !== -1)
   }
 
   function handleUpdateCard(cardIndex: number, card: CardType) {
     const newCardData = [...cardData]
-
     newCardData[cardIndex] = card
 
     saveCardData(newCardData)
+    setCards(newCardData)
   }
 
   return (
-    <main>
-      {cardData.map((card, index) => (
-        <Card
-          key={card.title}
-          card={card}
-          cardIndex={index}
+    <main className={mainContainer}>
+      <Drawer variant={isDrawerOpen ? 'open' : 'default'}>
+        <ChangeCardContentsDrawer
+          cardIndex={selectedCard}
+          card={cards[selectedCard]}
           onUpdateCard={handleUpdateCard}
-          onDeleteCard={handleDeleteCard}
+          onChangeSelectedCard={handleSelectCard}
         />
+      </Drawer>
+
+      {cards.map((card, index) => (
+        <Card key={`${card.title}${index}`} card={card} cardIndex={index} onChangeSelectedCard={handleSelectCard} />
       ))}
 
       <AddNewPlaceholder onClickNewPlaceholder={handleAddNewCard} />
